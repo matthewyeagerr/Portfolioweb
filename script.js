@@ -37,3 +37,24 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+
+const buttons = document.querySelectorAll('.tab-button');
+const tabs = document.querySelectorAll('.tab-content');
+
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    const tabId = button.getAttribute('data-tab');
+
+    // Remove 'active' class from all buttons
+    buttons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    // Show the correct tab content
+    tabs.forEach(tab => {
+      tab.classList.remove('active');
+      if (tab.id === tabId) {
+        tab.classList.add('active');
+      }
+    });
+  });
+});

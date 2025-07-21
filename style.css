@@ -151,9 +151,56 @@ footer a:hover {
   opacity: 1;
   transform: none;
 }
-.about {
-  margin-top: 20px;
-  padding: 20px;
-  background-color: #ecf0f1;
-  border-radius: 8px;
+
+.tab-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+  justify-content: center;
 }
+
+.tab-button {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #ddd;
+  border: black 1px solid;
+  border-radius: 5px;
+  font-weight: bold;
+  
+}
+
+.tab-button.active {
+  background-color: #333;
+  color: white;
+}
+
+.tab-content {
+  display: none;
+  
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.about{
+  padding: 20px;
+  text-align: center;
+
+}
+.about p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.contact{
+  padding: 20px;
+  text-align: center;
+
+}
+.contact p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+
+
