@@ -88,6 +88,9 @@ h2 {
   color: black;
 }
 
+
+
+
 .card.visible {
   opacity: 1;
   transform: translateY(0);
@@ -201,6 +204,27 @@ footer a:hover {
   margin-bottom: 20px;
   line-height: 1.6;
 }
+ul {
+  list-style-type: none;
+  padding: 0px;;
+  text-align: center;
+  line-height: 2.6;
+}
 
+.back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #333;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  z-index: 1000;
+  transition: background-color 0.2s ease;
+}
 
-
+.back-button:hover {
+  background-color: #555;
+}
