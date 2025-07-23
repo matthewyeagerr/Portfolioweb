@@ -88,6 +88,13 @@ h2 {
   color: black;
 }
 
+.card4 {
+  background-image: url('image4.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
 
 
 
