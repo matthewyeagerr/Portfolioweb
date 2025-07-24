@@ -17,99 +17,44 @@
     <div class = "tabs">
   <div class = "tab-buttons">
     
-    <button class="tab-button active" data-tab="about">About Me</button>
-    <button class="tab-button " data-tab="projects">Projects</button>
-    <button class="tab-button" data-tab="contact">Contact</button>
+    <a href="index.html" class="tab-button active">About Me</a>
+    <a href="contact.html" class="tab-button">Contact</a>
   </div>
 </div>
   </header>
 
 <section class="tab-content about active" id="about">
-    <h1>About Me</h1>
-    <p>I'm a senior studying Comptuer Science at the University of Missouri-St. Louis currently looking for internship and employment opportunities</p>
+    <p>I'm a senior studying Computer Science at the University of Missouri-St. Louis currently looking for internship and employment opportunities</p>
     <p>This website was developed myself and showcases some work I have done</p>
     <p>Feel free to explore my projects and reach out if you have any questions or suggestions</p>
-    
-  </section>
-
- <section class="tab-content projects" id="projects">
-  <h1>Projects</h1>
+     <h1>Projects</h1>
   <div class="project-list">
-    <a href="#" class="card card4" data-project="AITrading">
+    <a href="AITrading.html" class="card fade-in card4" data-project="AITrading">
       <h1>AI Trading Bot</h1>
       <p>Python based GUI that allows user to interact with a portfolio and buy/sell equities and implements Gemini AI</p>
     </a>
-    <a href="#" class="card card1" data-project="data-structures">
+    <a href="datastructures.html" class="card fade-in card1" data-project="data-structures">
       <h1>Data Structures Library</h1>
       <p>Java-based data structures for learning and reuse.</p>
     </a>
-    <a class="card card2" href="#" data-project="stock-app">
+    <a class="card fade-in card2" href="stockapp.html" data-project="stock-app">
       <h1>Stock App</h1>
       <p>Track and simulate personal stock portfolios.</p>
     </a>
-    <a class="card card3" href="#" data-project="Geo">
+    <a class="card fade-in card3" href="GeoGuesser.html" data-project="Geo">
       <h1>GeoGuesser</h1>
       <p>Simple location guessing game built from scratch.</p>
     </a>
   </div>
-<section class="project-detail" id="AITrading" style="display:none; margin-top: 2rem;">
-    <a href="#" class="back-button" id="back-from-data">← Back to Projects</a>
-    <h2>AI Trading Bot</h2>
-    <p>Python based GUI using TKinter that allows user to buy and sell equities fetching real-time data via Alpaca API</p>
-    <p>Also implements Google Gemini API for portfolio reccomendations and breakdown of risk / macro events</p>
-    <p>Allows user to see PnL for each position and the portfolio along with information regarding the positions</p>
-    <p>Fail safe incase user attempts to use more capital than avaliable</p>
-    <img src="image7.png" alt="AI Trading Bot Screenshot">
-    <p>
-      <h3><a href="https://github.com/matthewyeagerr/AITradingBot" target="_blank">View on GitHub</a></h3 >
-    </p>
-  </section>
-
-  <section class="project-detail" id="data-structures" style="display:none; margin-top: 2rem;">
-    <a href="#" class="back-button" id="back-from-data">← Back to Projects</a>
-    <h2>Data Structures Library</h2>
-    <p>This is a Java-based library of commonly used data structures for academic use and personal projects.</p>
-    <ul>
-      <li>Implemented: LinkedLists, Stacks, Queues, Trees, Arrays</li>
-      <li>Used Java collectiosn for some, and built others from scratch</li>
-    </ul>
-    <p>
-      <h3><a href="https://github.com/matthewyeagerr/DataStructuresLibrary" target="_blank">View on GitHub</a></h3>
-    </p>
+    
   </section>
 
 
-  <section class="project-detail" id="Geo" style="display:none; margin-top: 2rem;">
-    <a href="#" class="back-button" id="back-from-stock">← Back to Projects</a>
-    <h2>Geo Guesser </h2>
-    <p>Developed in Python and allows the user to guess what country a given capital is</p>
-    <p>Uses a text file and randomizes data, gives feedback on score and streaks, and allows user to prompt for hints</p>
-    <img src ="image6.png" alt="Geo Guesser Screenshot">
-    <img src = "image8.png" alt="Geo Guesser Screenshot 2">
-    <p>
-      <h3></h3><a href="https://github.com/matthewyeagerr/GeoGuesser" target="_blank">View on GitHub</a></h3>
-    </p>
-  </section>
-  <section class="project-detail" id="stock-app" style="display:none; margin-top: 2rem;">
-    <a href="#" class="back-button" id="back-from-stock">← Back to Projects</a>
-    <h2>Stock App</h2>
-    <p>An application developed using Swift to mimmic a online brokerage</p>
-    <p>Allows user to declare a portfolio value and sell or buy positions on stocks of their choosing</p>
-    <p>
-      <h3><a href="https://github.com/matthewyeagerr/StockApp" target="_blank">View on GitHub</a></h3>
-    </p>
-  </section>
-</section>
-
+ 
 
 
   
 
-  <section class = "tab-content contact" id="contact">
-    <h1>Contact me</h1>
-    <p>Feel free to reach out via email at <a href="mailto: matthewyeagerr@gmail.com">matthewyeagerr@gmail.com</a></p>
-    <p>Or connect with me on <a href="https://www.linkedin.com/in/matthew-yeager-a38272271/" target="_blank">LinkedIn</a></p>
-  </section>
   
 
   <script src="script.js"></script>

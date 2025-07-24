@@ -10,15 +10,6 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
-// Animate cards fade-in on page load
-window.addEventListener('DOMContentLoaded', () => {
-  const cards = document.querySelectorAll('.card');
-  cards.forEach((card, index) => {
-    setTimeout(() => {
-      card.classList.add('visible');
-    }, index * 150); // stagger animation
-  });
-});
 
 // Tab switching with project detail reset
 const buttons = document.querySelectorAll('.tab-button');
@@ -62,6 +53,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const card = e.target.closest('.card');
     if (!card) return;
 
+    const href = card.getAttribute('href');
+    if (href && href !== '#') {
+      // Let browser handle navigation for real links
+      return;
+    }
+
     e.preventDefault();
     const projectId = card.dataset.project;
     if (!projectId) return;
@@ -92,4 +89,28 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const faders = document.querySelectorAll('.fade-in');
+  let delayCounter = 0;
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+
+        // Use and increment the counter for staggered delay
+        el.style.transitionDelay = `${delayCounter * 150}ms`;
+        delayCounter++;
+
+        el.classList.add('visible');
+        observer.unobserve(el);
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  faders.forEach(el => observer.observe(el));
 });
