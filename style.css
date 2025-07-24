@@ -165,9 +165,21 @@ footer a:hover {
 }
 
 .tab-button.active {
-  background-color: #333;     /* dark grey background for active */
-  color: white;               /* white text for active */
-  border-color: #333;         /* match border to bg */
+  background-color: #333;
+  color: white;  
+  border-color: #333;   
+}
+.tab-button.active:hover { 
+  color: white;
+  transform: translateY(-2px); 
+  box-shadow: 0 4px 8px #555;
+  transition: transform 0.2s ease, box-shadow 0.2s ease
+}
+.tab-button:hover {
+  color: #555;      
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px #333;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .tab-content {
