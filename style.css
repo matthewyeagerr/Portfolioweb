@@ -307,3 +307,23 @@ ul {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
+
+.contact {
+  display: flex;
+  flex-direction: column; /* stack items vertically */
+  gap: 12px;              /* space between links */
+  align-items: center;    /* center links horizontally inside the card */
+  line-height: 3.5;
+  font-size: 20px;        /* larger font size for better visibility */
+  color: black;
+  text-decoration: none;  /* remove underline */
+}
+.contact a {
+  color: black;         /* link color */
+  text-decoration: none;  /* remove underline */
+  transition: color 0.3s ease; /* smooth color transition */
+} 
+.contact a:hover {
+  color: #0050c8;         /* darker color on hover */
+  text-decoration: underline; /* underline on hover */
+}
