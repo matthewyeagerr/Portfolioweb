@@ -247,11 +247,13 @@ ul {
 }
 
 .Examples {
+  width:100%;
   text-align: center; 
 }
 
 .Examples img {
-  max-width: 100%;   
+  max-width: min(100%, 600px);   
   height: auto;      
-  display: inline-block; 
+  display: block; 
+  margin: 0 auto;
 }
