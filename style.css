@@ -110,6 +110,7 @@ h2 {
   font-size: 22px;
 }
 
+
 footer {
   margin-top: 50px;
   padding: 20px;
@@ -256,4 +257,53 @@ ul {
   height: auto;      
   display: block; 
   margin: 0 auto;
+}
+
+.menu {
+  font-size: 67px;
+  color: #111;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+
+
+.contact-card {
+  margin: 20px auto;
+  background: #fff;
+  border-radius: 20px;
+  padding: 50px;
+  max-width: 400px;
+  height: 290px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+.contact-card p {
+  font-size: 14px;
+  margin-bottom: 12px;
+  letter-spacing: 0.75px;
+  line-height: 20;
+  
+}
+
+.contact-card a {
+  color: #0077ff;
+  text-decoration: none;
+  transition: color 0.8s ease;
+}
+
+.contact-card a:hover {
+  color: #0050c8;
+  text-decoration: underline;
+}
+
+.contact-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
