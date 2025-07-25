@@ -282,6 +282,10 @@ ul {
   font-family: 'Inter', sans-serif;
   text-align: center;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* vertical centering */
+  align-items: center;
 }
 
 .contact-card p {
