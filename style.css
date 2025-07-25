@@ -232,15 +232,26 @@ ul {
 
 .back-button:hover {
   background-color: #555;
+  transform: translateY(-2px);
 }
 
 .fade-in {
   opacity: 0;
-  transform: translateY(40px); /* more vertical shift for noticeable slide */
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateY(40px); 
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
 }
 
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.Examples {
+  text-align: center; 
+}
+
+.Examples img {
+  max-width: 100%;   
+  height: auto;      
+  display: inline-block; 
 }
