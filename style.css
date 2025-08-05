@@ -136,7 +136,7 @@ footer a:hover {
   overflow: hidden;
   white-space: nowrap;
   border-right: 2px solid #fff;
-  animation: typing 2s steps(20), blink 0.6s step-end 3 forwards; 
+  animation: typing 1.75s steps(20), blink 0.6s step-end 3 forwards; 
   display: inline-block;
 }
 
@@ -275,65 +275,83 @@ ul {
   text-align: center;
 }
 
+/* Flex container for all contact cards */
+.contact-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
 
-
+/* Individual contact card */
 .contact-card {
-  margin: 20px auto;
   background: #fff;
   border-radius: 20px;
-  padding: 50px;
-  max-width: 400px;
+  padding: 20px;
+  max-width: 800px;
   height: 290px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
   font-family: 'Inter', sans-serif;
   text-align: center;
-  padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;  /* vertical centering */
-  align-items: center;
-}
-
-.contact-card p {
-  font-size: 14px;
-  margin-bottom: 12px;
-  letter-spacing: 0.75px;
-  line-height: 20;
+  justify-content: center;      /* vertical centering */
+  align-items: center;        /* horizontal alignment */
+  flex: 1 1 300px;              /* responsive width with flex wrap */
+  transition: transform 1.2s ease, box-shadow 1.2s ease;
+  margin: 0 auto;
   
 }
 
-.contact-card a {
-  color: #0077ff;
-  text-decoration: none;
-  transition: color 0.8s ease;
+/* Text inside contact card (if you add <p> elements later) */
+.contact-card p {
+
+  font-size: 14px;
+  margin-bottom: 12px;
+  letter-spacing: 0.75px;
+  line-height: 20px;
 }
 
-.contact-card a:hover {
-  color: #0050c8;
-  text-decoration: underline;
-}
-
+/* Hover effect for card */
 .contact-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
+/* Link group styling */
 .contact {
   display: flex;
-  flex-direction: column; /* stack items vertically */
-  gap: 12px;              /* space between links */
-  align-items: center;    /* center links horizontally inside the card */
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-end; /* align links to the right */
   line-height: 3.5;
-  font-size: 20px;        /* larger font size for better visibility */
-  color: black;
-  text-decoration: none;  /* remove underline */
+  font-size: 20px;
+  text-decoration: none;
 }
+
+/* Individual link styling */
 .contact a {
-  color: black;         /* link color */
-  text-decoration: none;  /* remove underline */
-  transition: color 0.3s ease; /* smooth color transition */
-} 
+  color: black;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect for links */
 .contact a:hover {
-  color: #0050c8;         /* darker color on hover */
-  text-decoration: underline; /* underline on hover */
+  color: #0050c8;
+  text-decoration: underline;
+}
+
+
+  
+.form-container {
+  padding: 30px;
+  max-width: 400px;
+  width: 100%;
+}
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 37px;
 }
