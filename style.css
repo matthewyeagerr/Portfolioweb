@@ -350,12 +350,24 @@ ul {
 
   
 .form-container {
-  padding: 30px;
+  padding: 25px;
   max-width: 400px;
   width: 100%;
+  
 }
 .form-container form {
   display: flex;
   flex-direction: column;
   gap: 37px;
+}
+
+
+.form-container input,.form-container textarea {
+  width: 100%;
+  padding: 2px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 12px;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
