@@ -1,87 +1,81 @@
-
-
-
-// Tab switching with project detail reset
-const buttons = document.querySelectorAll('.tab-button');
-const tabs = document.querySelectorAll('.tab-content');
-
-buttons.forEach(button => {
-  button.addEventListener('click', () => {
-    const tabId = button.getAttribute('data-tab');
-
-    // Update active button
-    buttons.forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
-
-    // Show active tab, hide others
-    tabs.forEach(tab => {
-      tab.classList.remove('active');
-      if (tab.id === tabId) tab.classList.add('active');
-    });
-
-    // Reset project view when switching to projects tab
-    if (tabId === 'projects') {
-      const projectsTab = document.getElementById('projects');
-      const projectList = projectsTab.querySelector('.project-list');
-      const projectDetails = projectsTab.querySelectorAll('.project-detail');
-
-      if (projectList) projectList.style.display = 'flex'; // or 'block' depending on CSS
-      projectDetails.forEach(detail => {
-        detail.style.display = 'none';
-      });
-    }
-  });
-});
-
-// Project cards and details logic
 document.addEventListener('DOMContentLoaded', () => {
+  // Tab switching
+  const buttons = document.querySelectorAll('.tab-button');
+  const tabs = document.querySelectorAll('.tab-content');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const tabId = button.getAttribute('data-tab');
+
+      // Update active button styling
+      buttons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      // Show only the selected tab
+      tabs.forEach(tab => {
+        tab.classList.remove('active');
+        if (tab.id === tabId) tab.classList.add('active');
+      });
+
+      // Reset project view when switching to projects tab
+      if (tabId === 'projects') {
+        const projectsTab = document.getElementById('projects');
+        const projectList = projectsTab.querySelector('.project-list');
+        const projectDetails = projectsTab.querySelectorAll('.project-detail');
+
+        if (projectList) projectList.style.display = 'flex';
+        projectDetails.forEach(detail => {
+          detail.style.display = 'none';
+        });
+
+        // Re-observe any fade-in elements inside the projects tab
+        const projectFaders = projectsTab.querySelectorAll('.fade-in:not(.visible)');
+        projectFaders.forEach(el => observer.observe(el));
+      }
+    });
+  });
+
+  // Project detail view logic
   const projectList = document.querySelector('.project-list');
   const projectDetails = document.querySelectorAll('.project-detail');
 
-  // Show project detail on card click
-  projectList.addEventListener('click', (e) => {
-    const card = e.target.closest('.card');
-    if (!card) return;
+  if (projectList) {
+    projectList.addEventListener('click', (e) => {
+      const card = e.target.closest('.card');
+      if (!card) return;
 
-    const href = card.getAttribute('href');
-    if (href && href !== '#') {
-      // Let browser handle navigation for real links
-      return;
-    }
+      const href = card.getAttribute('href');
+      if (href && href !== '#') return; // Let real links work normally
 
-    e.preventDefault();
-    const projectId = card.dataset.project;
-    if (!projectId) return;
+      e.preventDefault();
+      const projectId = card.dataset.project;
+      if (!projectId) return;
 
-    // Hide project list
-    projectList.style.display = 'none';
+      // Hide main list
+      projectList.style.display = 'none';
 
-    // Hide all project details
-    projectDetails.forEach(section => section.style.display = 'none');
+      // Hide all detail sections
+      projectDetails.forEach(section => section.style.display = 'none');
 
-    // Show selected project detail
-    const target = document.getElementById(projectId);
-    if (target) target.style.display = 'block';
-  });
+      // Show selected detail
+      const target = document.getElementById(projectId);
+      if (target) target.style.display = 'block';
+    });
+  }
 
-  // Back buttons in project details
+  // Back buttons inside project details
   projectDetails.forEach(section => {
     const backBtn = section.querySelector('.back-button');
     if (backBtn) {
       backBtn.addEventListener('click', (e) => {
         e.preventDefault();
-
-        // Hide all project details
         projectDetails.forEach(s => s.style.display = 'none');
-
-        // Show project list again
-        projectList.style.display = 'flex'; // or 'block'
+        if (projectList) projectList.style.display = 'flex';
       });
     }
   });
-});
 
-document.addEventListener('DOMContentLoaded', () => {
+  // Fade-in effect using IntersectionObserver
   const faders = document.querySelectorAll('.fade-in');
   let delayCounter = 0;
 
@@ -90,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (entry.isIntersecting) {
         const el = entry.target;
 
-        // Use and increment the counter for staggered delay
+        // Optional: stagger animation
         el.style.transitionDelay = `${delayCounter * 150}ms`;
         delayCounter++;
 
@@ -104,4 +98,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
   faders.forEach(el => observer.observe(el));
 });
-
