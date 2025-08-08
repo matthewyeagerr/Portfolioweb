@@ -11,27 +11,29 @@
   <header>
     <h1 class="typewriter">Matthew Yeager</h1>
     <p>Personal Projects & Portfolio</p>
-    <div class = "tabs">
-  <div class = "tab-buttons">
-    
-    <a href="index.html" class="tab-button ">Home</a>
-    <a href="contact.html" class="tab-button">Contact</a>
-  </div>
-</div>
+    <div class="tabs">
+      <div class="tab-buttons">
+        <a href="index.html" class="tab-button">Home</a>
+        <a href="contact.html" class="tab-button">Contact</a>
+      </div>
+    </div>
   </header>
-<section class="tab-content about active" id="about"></section>
+  
+  <main class="project-page">
     <a href="index.html" class="back-button" id="back-from-data">← Back to Home</a>
-    <h1>Full Stack Workout Tracker</h1>
-    <h3><a href="https://github.com/matthewyeagerr/WorkoutTracker" target="_blank">View on GitHub</a></h3>
-    <p>Full Stack workout tracking application allowing users to log, update, and delete exercises</p>
-    <p>This application utilizes a RESTful API built with Node.js and Express for the backend, and a React frontend for a seamless user experience.</p>
-    <p>Implemented a dynamic react frontend with collapsible components for better user experience</p>
-    <p>Built and connected Flask backend using SQLAlchemy and SQLite for data persistence</p>
-    <img src="WorkoutTracker.png" alt="Full Stack Workout Tracker Screenshot" class ="Examples">
+    <section class="project-content">
+      <h1>Full Stack Workout Tracker</h1>
+      <h3><a href="https://github.com/matthewyeagerr/WorkoutTracker" target="_blank">View on GitHub</a></h3>
+      <p>Full Stack workout tracking application allowing users to log, update, and delete exercises with comprehensive workout management</p>
+      <p>Built with a React frontend for dynamic user interactions and a Python Flask backend for robust data handling</p>
+      <p>Implemented responsive React components with collapsible workout sections for an intuitive user experience</p>
+      <p>Utilizes Flask RESTful API with SQLAlchemy ORM and SQLite database for reliable data persistence and management</p>
+      <div class="Examples">
+        <img src="WorkoutTracker.png" alt="Full Stack Workout Tracker Screenshot">
+      </div>
+    </section>
+  </main>
 
-  </section>
-<section class = "tab-content contact active" id="contact">
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

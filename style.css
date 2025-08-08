@@ -64,7 +64,7 @@ h2 {
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
 }
 .card1 {
@@ -102,10 +102,7 @@ h2 {
 }
 
 
-.card:hover {
-  transform: translateY(-5px) scale(1.03);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-}
+.card:hover,
 .card.visible:hover {
   transform: translateY(-5px) scale(1.03);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
@@ -165,32 +162,31 @@ footer a:hover {
 .tab-button {
   padding: 10px 20px;
   cursor: pointer;
-  background-color: white;    /* white background for inactive */
-  color: #666666;             /* grey text for inactive */
-  border: 1px solid #999999;  /* lighter grey border */
+  background-color: white;
+  color: #666666;
+  border: 1px solid #999999;
   border-radius: 5px;
   font-weight: bold;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  text-decoration: none;      /* if these are links */
+  transition: all 0.3s ease;
+  text-decoration: none;
   display: inline-block;
 }
 
 .tab-button.active {
   background-color: #333;
-  color: white;  
-  border-color: #333;   
-}
-.tab-button.active:hover { 
   color: white;
-  transform: translateY(-2px); 
-  box-shadow: 0 4px 8px #555;
-  transition: transform 0.2s ease, box-shadow 0.2s ease
+  border-color: #333;
 }
+.tab-button.active:hover {
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px #555;
+}
+
 .tab-button:hover {
-  color: #555;      
+  color: #555;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px #333;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .tab-content {
@@ -202,27 +198,21 @@ footer a:hover {
   display: block;
 }
 
-.about{
+/* Combined styles for about and contact sections */
+.about,
+.contact {
   padding: 20px;
   text-align: center;
+}
 
-}
-.about p {
-  margin-bottom: 20px;
-  line-height: 1.6;
-}
-.contact{
-  padding: 20px;
-  text-align: center;
-
-}
+.about p,
 .contact p {
   margin-bottom: 20px;
   line-height: 1.6;
 }
 ul {
   list-style-type: none;
-  padding: 0px;;
+  padding: 0;
   text-align: center;
   line-height: 2.6;
 }
@@ -238,7 +228,7 @@ ul {
   border-radius: 8px;
   font-weight: bold;
   z-index: 1000;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .back-button:hover {
@@ -258,15 +248,69 @@ ul {
 }
 
 .Examples {
-  width:100%;
-  text-align: center; 
+  width: 100%;
+  text-align: center;
 }
 
 .Examples img {
-  max-width: min(100%, 600px);   
-  height: auto;      
-  display: block; 
+  max-width: min(100%, 600px);
+  height: auto;
+  display: block;
   margin: 0 auto;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.Examples img:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* Modal/Lightbox styles */
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  animation: fadeIn 0.3s ease;
+}
+
+.image-modal.show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  max-width: 95%;
+  max-height: 95%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+  color: #1abc9c;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .menu {
@@ -294,23 +338,21 @@ ul {
   border-radius: 20px;
   padding: 20px;
   max-width: 800px;
-  height: 290px;
+  height: 320px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
   font-family: 'Inter', sans-serif;
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;      /* vertical centering */
-  align-items: center;        /* horizontal alignment */
-  flex: 1 1 300px;              /* responsive width with flex wrap */
-  transition: transform 1.2s ease, box-shadow 1.2s ease;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   margin: 0 auto;
-  
 }
 
 /* Text inside contact card (if you add <p> elements later) */
 .contact-card p {
-
   font-size: 14px;
   margin-bottom: 12px;
   letter-spacing: 0.75px;
@@ -328,7 +370,7 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  align-items: flex-end; /* align links to the right */
+  align-items: center;
   line-height: 3.5;
   font-size: 20px;
   text-decoration: none;
@@ -353,21 +395,110 @@ ul {
   padding: 25px;
   max-width: 400px;
   width: 100%;
-  
 }
+
 .form-container form {
   display: flex;
   flex-direction: column;
-  gap: 37px;
+  gap: 20px;
 }
 
-
-.form-container input,.form-container textarea {
+.form-container input,
+.form-container textarea {
   width: 100%;
-  padding: 2px;
+  padding: 12px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  font-size: 12px;
+  font-size: 14px;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-container input:focus,
+.form-container textarea:focus {
+  outline: none;
+  border-color: #1abc9c;
+  box-shadow: 0 0 0 2px rgba(26, 188, 156, 0.2);
+}
+
+.form-container button {
+  padding: 12px 24px;
+  background-color: #1abc9c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-container button:hover {
+  background-color: #16a085;
+  transform: translateY(-2px);
+}
+
+/* Project page styles */
+.project-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.project-content {
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  margin-top: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.project-content h1 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.project-content h3 a {
+  color: #1abc9c;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.project-content h3 a:hover {
+  color: #16a085;
+  text-decoration: underline;
+}
+
+.project-content p {
+  line-height: 1.8;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .card {
+    width: 90vw;
+    min-height: 250px;
+    padding: 30px 20px;
+  }
+  
+  .contact-cards {
+    flex-direction: column;
+  }
+  
+  .contact-card {
+    max-width: 100%;
+    height: auto;
+    min-height: 200px;
+  }
+  
+  .project-content {
+    padding: 20px;
+  }
+  
+  header h1 {
+    font-size: 36px;
+  }
 }

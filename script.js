@@ -77,24 +77,71 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Fade-in effect using IntersectionObserver
   const faders = document.querySelectorAll('.fade-in');
-  let delayCounter = 0;
 
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
       if (entry.isIntersecting) {
         const el = entry.target;
-
-        // Optional: stagger animation
-        el.style.transitionDelay = `${delayCounter * 150}ms`;
-        delayCounter++;
-
-        el.classList.add('visible');
+        
+        // Staggered animation delay
+        setTimeout(() => {
+          el.classList.add('visible');
+        }, index * 150);
+        
         observer.unobserve(el);
       }
     });
   }, {
-    threshold: 0.1
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
   });
 
   faders.forEach(el => observer.observe(el));
+
+  // Image modal functionality
+  function createImageModal() {
+    // Create modal elements
+    const modal = document.createElement('div');
+    modal.className = 'image-modal';
+    modal.innerHTML = `
+      <span class="close-modal">&times;</span>
+      <img class="modal-content" src="" alt="">
+    `;
+    document.body.appendChild(modal);
+
+    const modalImg = modal.querySelector('.modal-content');
+    const closeBtn = modal.querySelector('.close-modal');
+
+    // Add click handlers to all project images
+    const projectImages = document.querySelectorAll('.Examples img');
+    projectImages.forEach(img => {
+      img.addEventListener('click', () => {
+        modal.classList.add('show');
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+      });
+    });
+
+    // Close modal handlers
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    // Close with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('show')) {
+        closeModal();
+      }
+    });
+
+    function closeModal() {
+      modal.classList.remove('show');
+      document.body.style.overflow = 'auto'; // Re-enable scrolling
+    }
+  }
+
+  // Initialize image modal
+  createImageModal();
 });
